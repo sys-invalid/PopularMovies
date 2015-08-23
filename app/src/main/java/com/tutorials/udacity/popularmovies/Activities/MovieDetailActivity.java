@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tutorials.udacity.popularmovies.Fragments.MovieDetailFragment;
+import com.tutorials.udacity.popularmovies.Models.Movie;
 import com.tutorials.udacity.popularmovies.R;
+import com.tutorials.udacity.popularmovies.Utils.Constants;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
@@ -13,6 +16,14 @@ public class MovieDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            Movie movie = (Movie) b.get(Constants.BUNDLE_MOVIE);
+            MovieDetailFragment detailFragment = MovieDetailFragment.getInstance(movie);
+            getSupportFragmentManager().beginTransaction().replace(R.id.listContainer,detailFragment).commit();
+
+        }
+
     }
 
 
