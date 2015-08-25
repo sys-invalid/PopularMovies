@@ -96,7 +96,8 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
             }
           //  tvVotes.setText(movie.VoteAvg + "");
             tvTitle.setText(movie.Title);
-
+            ivMovie.setImageBitmap(null);
+            ivMovie.setBackgroundDrawable(null);
             if (movie.PosterPath != null && movie.PosterPath != "") {
                 Picasso.with(mContext).load(movie.getThumbnailUrl("w185")).into(ivMovie);
             }

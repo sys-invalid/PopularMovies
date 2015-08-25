@@ -70,8 +70,9 @@ public class MovieDetailFragment extends Fragment {
 
     public void bind() {
         if (movie != null) {
-
-            Picasso.with(getActivity()).load(movie.getThumbnailUrl("w342")).transform(transformation).into(ivMoviePoster);
+            if(movie.PosterPath != null && movie.PosterPath !="") {
+                Picasso.with(getActivity()).load(movie.getThumbnailUrl("w342")).transform(transformation).into(ivMoviePoster);
+            }
             double roundOff = Math.round(movie.Popularity * 100.0) / 100.0;
             tvPopularity.setText(roundOff + "%");
             tvTitle.setText(movie.Title);
