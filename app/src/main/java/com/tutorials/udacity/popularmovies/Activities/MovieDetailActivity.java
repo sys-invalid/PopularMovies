@@ -21,7 +21,7 @@ public class MovieDetailActivity extends AppCompatActivity {
             Movie movie = (Movie) b.get(Constants.BUNDLE_MOVIE);
             MovieDetailFragment detailFragment = MovieDetailFragment.getInstance(movie);
             getSupportFragmentManager().beginTransaction().replace(R.id.listContainer,detailFragment).commit();
-
+            getSupportActionBar().setTitle(movie.Title);
         }
 
     }
@@ -42,9 +42,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

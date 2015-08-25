@@ -8,9 +8,7 @@ import android.widget.Toast;
 
 import com.tutorials.udacity.popularmovies.MovieApp;
 
-/**
- * Created by asharma on 8/22/15.
- */
+
 public class MovieException {
     String mMessage;
 
