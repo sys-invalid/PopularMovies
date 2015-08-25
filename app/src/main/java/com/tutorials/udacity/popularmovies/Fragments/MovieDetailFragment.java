@@ -75,7 +75,7 @@ public class MovieDetailFragment extends Fragment {
             double roundOff = Math.round(movie.Popularity * 100.0) / 100.0;
             tvPopularity.setText(roundOff + "%");
             tvTitle.setText(movie.Title);
-            tvAverage.setText(movie.VoteCount + " votes");
+            tvAverage.setText(movie.VoteAvg + "");
             tvOverView.setText(movie.OverView);
             tvReleaseDate.setText(movie.ReleaseDate);
            // tvPopularity.setText(movie.Popularity + "");

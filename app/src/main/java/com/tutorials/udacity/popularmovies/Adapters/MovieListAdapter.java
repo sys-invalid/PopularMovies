@@ -91,7 +91,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
                 tvPopularity.setText(roundOff + "%");
                 ivVotes.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_toggle_star_half));
             }else if(sortPreference == Constants.SORT_RATING){
-               tvPopularity.setText(movie.VoteCount + " count");
+               tvPopularity.setText(movie.VoteAvg + "");
                 ivVotes.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_editor_insert_emoticon));
             }
           //  tvVotes.setText(movie.VoteAvg + "");
