@@ -28,7 +28,12 @@
                 android:transitionName="profile"
                 android:layout_gravity="center_horizontal"
                 tools:src="@drawable/test" />
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivSaveFavorite"
+                android:src="@android:drawable/ic_menu_add"
+                />
             <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
                 android:id="@+id/tvTitle"
                 style="@style/HeadingStyle"

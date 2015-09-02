@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tutorials.udacity.popularmovies.Fragments.MovieListFragment;
+import com.tutorials.udacity.popularmovies.Interfaces.IMovieClickListener;
 import com.tutorials.udacity.popularmovies.Models.Movie;
 import com.tutorials.udacity.popularmovies.R;
 import com.tutorials.udacity.popularmovies.Utils.Constants;
@@ -21,17 +22,21 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
 
     List<Movie> movieList;
     Context mContext;
-    MovieListFragment.IMovieClickListener movieClickListener;
+    IMovieClickListener movieClickListener;
 
     int sortPreference;
 
-    public void setMovieList(List<Movie> movieList,int sortPreference) {
+    public void setMovieList(List<Movie> movieList, int sortPreference) {
         this.movieList = movieList;
         this.sortPreference = sortPreference;
     }
 
+    public MovieListAdapter(IMovieClickListener clickListener, int sortPreference) {
+        this(new ArrayList<Movie>(), clickListener, sortPreference);
+    }
 
-    public MovieListAdapter(List<Movie> pMovies, MovieListFragment.IMovieClickListener clickListener, int sortPreference) {
+
+    public MovieListAdapter(List<Movie> pMovies, IMovieClickListener clickListener, int sortPreference) {
         this.movieList = pMovies == null ? new ArrayList<Movie>() : pMovies;
         this.movieClickListener = clickListener;
         this.sortPreference = sortPreference;
@@ -67,18 +72,18 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
             super(itemView);
             tvPopularity = (TextView) itemView.findViewById(R.id.tvPopularity);
             tvTitle = (TextView) itemView.findViewById(R.id.tvMovieName);
-          //  tvVotes = (TextView) itemView.findViewById(R.id.tvVotesAverage);
+            //  tvVotes = (TextView) itemView.findViewById(R.id.tvVotesAverage);
             ivMovie = (ImageView) itemView.findViewById(R.id.ivMoviePoster);
-            ivVotes = (ImageView)itemView.findViewById(R.id.ivIcon);
+            ivVotes = (ImageView) itemView.findViewById(R.id.ivIcon);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(movieClickListener != null){
+                    if (movieClickListener != null) {
                         int position = getAdapterPosition();
 
-                        if(movieClickListener != null && movieList.size() > position && position >= 0) {
+                        if (movieClickListener != null && movieList.size() > position && position >= 0) {
                             Movie item = movieList.get(position);
-                            movieClickListener.onMovieItemClicked(item,position,ivMovie);
+                            movieClickListener.onMovieItemClicked(item, position, ivMovie);
                         }
                     }
                 }
@@ -86,15 +91,15 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         }
 
         public void bindMovie(Movie movie) {
-            if(sortPreference == Constants.SORT_POPULARITY) {
+            if (sortPreference == Constants.SORT_POPULARITY) {
                 double roundOff = Math.round(movie.Popularity * 100.0) / 100.0;
                 tvPopularity.setText(roundOff + "%");
                 ivVotes.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_toggle_star_half));
-            }else if(sortPreference == Constants.SORT_RATING){
-               tvPopularity.setText(movie.VoteAvg + "");
+            } else if (sortPreference == Constants.SORT_RATING) {
+                tvPopularity.setText(movie.VoteAvg + "");
                 ivVotes.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_editor_insert_emoticon));
             }
-          //  tvVotes.setText(movie.VoteAvg + "");
+            //  tvVotes.setText(movie.VoteAvg + "");
             tvTitle.setText(movie.Title);
             ivMovie.setImageBitmap(null);
             ivMovie.setBackgroundDrawable(null);

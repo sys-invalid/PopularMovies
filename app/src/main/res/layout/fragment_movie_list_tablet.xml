@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    >
+
+
+    <com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView
+        android:id="@+id/lstMoviesPopular"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        ></com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView>
+
+    <com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView
+        android:id="@+id/lstMoviesRated"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView>
+
+
+    <com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView
+        android:id="@+id/lstMoviesFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></com.tutorials.udacity.popularmovies.CustomViews.ExtendedRecyclerView>
+
+</LinearLayout>

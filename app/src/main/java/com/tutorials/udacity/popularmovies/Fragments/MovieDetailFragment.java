@@ -1,6 +1,7 @@
 package com.tutorials.udacity.popularmovies.Fragments;
 
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +13,11 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.tutorials.udacity.popularmovies.Models.Movie;
+import com.tutorials.udacity.popularmovies.Providers.SharedPreferenceProvider;
 import com.tutorials.udacity.popularmovies.R;
+import com.tutorials.udacity.popularmovies.Utils.Constants;
+
+import java.util.Set;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,6 +31,7 @@ public class MovieDetailFragment extends Fragment {
     TextView tvPopularity;
     TextView tvAverage;
     ImageView ivMoviePoster;
+    ImageView ivSaveFavorite;
 
     public void setMovie(Movie movie) {
         this.movie = movie;
@@ -58,7 +64,22 @@ public class MovieDetailFragment extends Fragment {
         tvPopularity = (TextView) rootView.findViewById(R.id.tvPopularity);
         tvAverage = (TextView) rootView.findViewById(R.id.tvRatings);
         ivMoviePoster = (ImageView) rootView.findViewById(R.id.ivMoviePoster);
+        ivSaveFavorite = (ImageView)rootView.findViewById(R.id.ivSaveFavorite);
+        ivSaveFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get list
+                Set<String> savedMovies = SharedPreferenceProvider.get().get(Constants.SHARED_PREF_FAV);
+                if(savedMovies.contains(movie.Id)){
+                    SharedPreferenceProvider.get().removeFromList(Constants.SHARED_PREF_FAV, movie.Id);
+                    ivSaveFavorite.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_menu_add));
+                }else{
+                    SharedPreferenceProvider.get().saveToList(Constants.SHARED_PREF_FAV, movie.Id);
+                    ivSaveFavorite.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_menu_delete));
+                }
 
+            }
+        });
         return rootView;
     }
 
@@ -80,6 +101,12 @@ public class MovieDetailFragment extends Fragment {
             tvOverView.setText(movie.OverView);
             tvReleaseDate.setText(movie.ReleaseDate);
            // tvPopularity.setText(movie.Popularity + "");
+            Set<String> savedMovies = SharedPreferenceProvider.get().get(Constants.SHARED_PREF_FAV);
+            if(savedMovies.contains(movie.Id)){
+                ivSaveFavorite.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_menu_delete));
+            }else{
+                ivSaveFavorite.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_menu_add));
+            }
         }
     }
 

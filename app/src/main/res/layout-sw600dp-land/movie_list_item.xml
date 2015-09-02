@@ -11,6 +11,7 @@
     android:background="@android:color/white"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardElevation="2dp"
+
     app:cardPreventCornerOverlap="true">
 
     <LinearLayout
