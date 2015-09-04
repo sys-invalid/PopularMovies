@@ -132,6 +132,11 @@
                 app:fontName="Roboto-Regular.ttf"
                 tools:text="Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" />
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lvTrailers"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                ></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>

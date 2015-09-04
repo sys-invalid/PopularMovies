@@ -1,10 +1,12 @@
 package com.tutorials.udacity.popularmovies.Models;
 
 
+import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
+import com.tutorials.udacity.popularmovies.Database.MoviesTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,7 @@ public class Movie implements Parcelable {
 
 
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -88,4 +91,18 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
+    public ContentValues toContentValues() {
+        ContentValues cv = new ContentValues();
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_POSTERPATH, PosterPath);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_OVERVIEW, OverView);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_ID, Id);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_POPULARITY, Popularity);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_RELEASEDATE, ReleaseDate);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_Title, Title);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_VOTEAVG, VoteAvg);
+        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_VOTECOUNT, VoteCount);
+        return cv;
+
+    }
 }

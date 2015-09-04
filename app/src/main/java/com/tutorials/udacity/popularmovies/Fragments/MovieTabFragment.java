@@ -69,7 +69,7 @@ public class MovieTabFragment extends Fragment  {
                 case 1:
                     return MovieListFragment.newInstance(Constants.SORT_RATING);
                 case 2:
-                    return MovieListFragment.newInstance(Constants.SORT_POPULARITY);
+                    return MovieListFragment.newInstance(Constants.SORT_SAVE);
             }
             return null;
         }
