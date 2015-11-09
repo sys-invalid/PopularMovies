@@ -169,12 +169,14 @@ public class MainActivity extends AppCompatActivity implements IMovieListFragmen
     public void onMovieRemoved(Movie pMovie) {
         //rebind the list if sorted preference is favorite
         if (sortPreference == Constants.SORT_SAVE) {
-            selectedPosition = 0;
-            movieListFragment = (MovieListFragment) getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MOVIE_LIST_TAG);
-            if (movieListFragment != null) {
-                movieListFragment.bindData();
-            } else {
-                initializeListFragment();
+            if (!getResources().getBoolean(R.bool.isPhone)) {
+                selectedPosition = 0;
+                movieListFragment = (MovieListFragment) getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MOVIE_LIST_TAG);
+                if (movieListFragment != null) {
+                    movieListFragment.bindData();
+                } else {
+                    initializeListFragment();
+                }
             }
         }
 
