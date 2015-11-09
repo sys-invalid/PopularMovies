@@ -45,15 +45,18 @@
 
 
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
+                android:layout_alignParentBottom="true"
+                android:id="@+id/rlPopularity"
+                >
 
                 <ImageView
                     android:id="@+id/ivIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_action_toggle_star_half"
 
                     />
 
@@ -64,6 +67,38 @@
                     android:layout_alignBottom="@+id/ivIcon"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivIcon"
+                    android:paddingBottom="6dp"
+                    android:textSize="12sp"
+                    android:text="54.12%"
+                    app:fontName="Roboto-Regular.ttf" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/rlRating"
+                android:layout_toRightOf="@+id/rlPopularity"
+                >
+
+                <ImageView
+                    android:id="@+id/ivRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_action_editor_insert_emoticon"
+
+                    />
+
+                <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ivRating"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/ivRating"
                     android:paddingBottom="6dp"
                     android:textSize="12sp"
                     android:text="54.12%"

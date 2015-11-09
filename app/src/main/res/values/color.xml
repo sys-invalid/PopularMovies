@@ -3,4 +3,5 @@
     <color name="moviesred">#FFD61919</color>
     <color name="linkcolor">#FF006BD1</color>
     <color name="backcolor">#ECECF3</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

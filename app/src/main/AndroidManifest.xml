@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
-
     <application
         android:name=".MovieApp"
         android:allowBackup="true"
@@ -25,11 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MovieDetailActivity"></activity>
+        <activity android:name=".Activities.MovieDetailActivity"
+
+            ></activity>
 
         <provider
-            android:name=".Providers.FavoriteProvider"
-            android:authorities="com.tutorials.udacity.popularmovies.Providers"></provider>
+            android:authorities="com.tutorials.udacity.popularmovies.Database.FavoriteContentProvider"
+            android:name="com.tutorials.udacity.popularmovies.Database.generated.FavoriteContentProvider"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

@@ -1,6 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.tutorials.udacity.popularmovies.Activities.MovieDetailActivity">
+    xmlns:bwq="http://schemas.android.com/apk/res-auto" >
 
+    <item
+        android:id="@+id/menu_share"
+        android:title="@string/share"
+        bwq:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        bwq:showAsAction="ifRoom"/>
 </menu>

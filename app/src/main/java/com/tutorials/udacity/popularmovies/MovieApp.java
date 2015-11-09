@@ -13,7 +13,6 @@ public class MovieApp extends Application {
 
     private static MovieApp mInstance;
 
-    private RequestQueue mRequestQueue;
 
 
     @Override
@@ -26,6 +25,8 @@ public class MovieApp extends Application {
     public static MovieApp getInstance() {
         return mInstance;
     }
+
+    private RequestQueue mRequestQueue;
 
     public RequestQueue getVolleyRequestQueue() {
         if (mRequestQueue == null) {

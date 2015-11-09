@@ -11,132 +11,197 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp">
 
-        <LinearLayout
-            android:layout_width="540dp"
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_gravity="center_horizontal"
-            >
+            tools:context="com.webmd.popularmovies.ScrollingActivity">
 
-            <ImageView
-                android:id="@+id/ivMoviePoster"
-                android:layout_width="480dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:transitionName="profile"
+            <LinearLayout
+                android:layout_width="540dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                tools:src="@drawable/test" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ivSaveFavorite"
-                android:src="@android:drawable/ic_menu_add"
-                />
-            <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                android:id="@+id/tvTitle"
-                style="@style/HeadingStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:fontName="Roboto-Regular.ttf"
-               android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                tools:text="Interstellar" />
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/ivMoviePoster"
+                    android:layout_width="480dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="4dp"
+                    android:transitionName="profile"
+                    tools:src="@drawable/test" />
 
                 <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                    style="@style/SubHeadingStyle"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvTitle"
+                    style="@style/HeadingStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/release_date"
-                    app:fontName="Roboto-Regular.ttf" />
-
-                <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                    android:id="@+id/tvReleaseDate"
-                    style="@style/SubHeadingStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
                     app:fontName="Roboto-Regular.ttf"
-                    tools:text="2015-06-12" />
-            </LinearLayout>
+                    tools:text="Interstellar" />
 
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="-6dp"
-                   >
-
-                    <ImageView
-                        android:id="@+id/ivIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-
-                        android:src="@drawable/ic_action_toggle_star_half" />
+                    android:orientation="horizontal">
 
                     <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                        android:id="@+id/tvPopularity"
-                        style="@style/CaptionStyle"
+                        style="@style/SubHeadingStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/ivIcon"
+                        android:text="@string/release_date"
+                        app:fontName="Roboto-Regular.ttf" />
+
+                    <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                        android:id="@+id/tvReleaseDate"
+                        style="@style/SubHeadingStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
                         app:fontName="Roboto-Regular.ttf"
-                        tools:text="23.1%" />
+                        tools:text="2015-06-12" />
+                </LinearLayout>
 
-                </RelativeLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true">
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/ivIcon2"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:src="@drawable/ic_action_editor_insert_emoticon" />
+                        android:layout_marginLeft="-6dp">
+
+                        <ImageView
+                            android:id="@+id/ivIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+
+                            android:src="@drawable/ic_action_toggle_star_half" />
+
+                        <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                            android:id="@+id/tvPopularity"
+                            style="@style/CaptionStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/ivIcon"
+                            app:fontName="Roboto-Regular.ttf"
+                            tools:text="23.1%" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true">
+
+                        <ImageView
+                            android:id="@+id/ivIcon2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/ic_action_editor_insert_emoticon" />
+
+                        <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                            android:id="@+id/tvRatings"
+                            style="@style/CaptionStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/ivIcon2"
+                            app:fontName="Roboto-Regular.ttf"
+                            tools:text="1234 votes" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                    android:id="@+id/tvOverView"
+                    style="@style/bodyStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fontName="Roboto-Regular.ttf"
+                    tools:text="Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" />
+                <LinearLayout
+                    android:id="@+id/trailerContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@android:color/darker_gray" />
 
                     <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                        android:id="@+id/tvRatings"
-                        style="@style/CaptionStyle"
+                        style="@style/HeadingStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/ivIcon2"
+                        android:text="@string/trailers"
                         app:fontName="Roboto-Regular.ttf"
-                        tools:text="1234 votes" />
+                        android:gravity="center_horizontal"
+                        android:id="@+id/tvTrailers"
+                        tools:text="Trailers" />
 
-                </RelativeLayout>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/lvTrailers"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp"
+                        android:scrollbars="none">
 
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/reviewContainers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
+                        style="@style/HeadingStyle"
+                        android:layout_width="match_parent"
+                        android:id="@+id/tvReviews"
+                        android:layout_height="wrap_content"
+                        android:text="@string/review"
+                        android:gravity="center_horizontal"
+                        app:fontName="Roboto-Regular.ttf" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/lvReviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-
-            <com.tutorials.udacity.popularmovies.CustomViews.CustomFontTextView
-                android:id="@+id/tvOverView"
-                style="@style/bodyStyle"
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontName="Roboto-Regular.ttf"
-                tools:text="Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum" />
-
-
-        </LinearLayout>
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/ic_fav"
+                app:backgroundTint="@android:color/white"
+                app:layout_anchor="@id/ivMoviePoster"
+                app:layout_anchorGravity="bottom|right|end" />
+        </android.support.design.widget.CoordinatorLayout>
     </ScrollView>
 </LinearLayout>
 

@@ -12,14 +12,11 @@ import com.tutorials.udacity.popularmovies.Models.Movie;
 import com.tutorials.udacity.popularmovies.Models.MovieException;
 import com.tutorials.udacity.popularmovies.Models.MovieResponse;
 import com.tutorials.udacity.popularmovies.Models.ReviewResponse;
-import com.tutorials.udacity.popularmovies.Models.Trailers;
+import com.tutorials.udacity.popularmovies.Models.TrailerResponse;
 import com.tutorials.udacity.popularmovies.MovieApp;
 import com.tutorials.udacity.popularmovies.Utils.Constants;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class MovieProvider implements IMovieProvider {
@@ -71,13 +68,12 @@ public class MovieProvider implements IMovieProvider {
     }
 
     @Override
-    public void getMovieTrailer(String id,final ICallbackListener<List<Trailers>> pCallback) {
+    public void getMovieTrailer(long id,final ICallbackListener<TrailerResponse> pCallback) {
         String url = String.format(Constants.API_TRAILER_URL,id,Constants.API_KEY);
-        Type listType = new TypeToken<List<Trailers>>() {
-        }.getType();
-        Request<List<Trailers>> request = new GsonRequest<>(url, listType, null, new Response.Listener<List<Trailers>>() {
+        Type listType = new TypeToken<TrailerResponse>() {}.getType();
+        Request<TrailerResponse> request = new GsonRequest<>(url, listType, null, new Response.Listener<TrailerResponse>() {
             @Override
-            public void onResponse(List<Trailers> response) {
+            public void onResponse(TrailerResponse response) {
                 if(response !=null) {
                     pCallback.onComplete(response);
                 }
@@ -92,8 +88,8 @@ public class MovieProvider implements IMovieProvider {
     }
 
     @Override
-    public void getReviews(String id,final ICallbackListener<ReviewResponse> pCallback) {
-        String url = String.format(Constants.API_TRAILER_URL,id,Constants.API_KEY);
+    public void getReviews(long id,final ICallbackListener<ReviewResponse> pCallback) {
+        String url = String.format(Constants.API_REVIEW_URL,id,Constants.API_KEY);
          Type listType = new TypeToken<ReviewResponse>() {
         }.getType();
         Request<ReviewResponse> request = new GsonRequest<>(url, listType, null, new Response.Listener<ReviewResponse>() {

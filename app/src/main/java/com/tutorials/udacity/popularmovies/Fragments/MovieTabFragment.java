@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tutorials.udacity.popularmovies.Interfaces.IMovieListFragmentListener;
 import com.tutorials.udacity.popularmovies.Models.Movie;
 import com.tutorials.udacity.popularmovies.R;
 import com.tutorials.udacity.popularmovies.Utils.Constants;
@@ -65,11 +66,11 @@ public class MovieTabFragment extends Fragment  {
             Fragment fragment;
             switch (index) {
                 case 0:
-                    return  MovieListFragment.newInstance(Constants.SORT_POPULARITY);
+                    return  MovieListFragment.newInstance(Constants.SORT_POPULARITY,(IMovieListFragmentListener)getActivity());
                 case 1:
-                    return MovieListFragment.newInstance(Constants.SORT_RATING);
+                    return MovieListFragment.newInstance(Constants.SORT_RATING,(IMovieListFragmentListener)getActivity());
                 case 2:
-                    return MovieListFragment.newInstance(Constants.SORT_SAVE);
+                    return MovieListFragment.newInstance(Constants.SORT_SAVE,(IMovieListFragmentListener)getActivity());
             }
             return null;
         }

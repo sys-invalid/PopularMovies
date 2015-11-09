@@ -6,7 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
-import com.tutorials.udacity.popularmovies.Database.MoviesTable;
+import com.tutorials.udacity.popularmovies.Database.FavoriteColumns;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Movie implements Parcelable {
     }
 
     public Movie(Parcel in) {
-        this.Id = in.readString();
+        this.Id = in.readLong();
         this.Title = in.readString();
         in.readStringList(this.GenreIds);
         this.PosterPath = in.readString();
@@ -31,8 +31,8 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        this.GenreIds = this.GenreIds == null ? new ArrayList<String>():this.GenreIds;
-        dest.writeString(this.Id);
+        this.GenreIds = this.GenreIds == null ? new ArrayList<String>() : this.GenreIds;
+        dest.writeLong(this.Id);
         dest.writeString(this.Title);
         dest.writeStringList(this.GenreIds);
         dest.writeString(this.PosterPath);
@@ -47,7 +47,7 @@ public class Movie implements Parcelable {
     @SerializedName("title")
     public String Title;
     @SerializedName("id")
-    public String Id;
+    public long Id;
     @SerializedName("genre_ids")
     public List<String> GenreIds = new ArrayList<>();
     @SerializedName("poster_path")
@@ -71,8 +71,6 @@ public class Movie implements Parcelable {
     }
 
 
-
-
     @Override
     public int describeContents() {
         return 0;
@@ -94,14 +92,14 @@ public class Movie implements Parcelable {
 
     public ContentValues toContentValues() {
         ContentValues cv = new ContentValues();
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_POSTERPATH, PosterPath);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_OVERVIEW, OverView);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_ID, Id);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_POPULARITY, Popularity);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_RELEASEDATE, ReleaseDate);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_Title, Title);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_VOTEAVG, VoteAvg);
-        cv.put(MoviesTable.MovieEntry.COLUMN_NAME_VOTECOUNT, VoteCount);
+        cv.put(FavoriteColumns.COLUMN_NAME_POSTERPATH, PosterPath != null ? PosterPath : "");
+        cv.put(FavoriteColumns.COLUMN_NAME_OVERVIEW, OverView != null ? OverView : "");
+        cv.put(FavoriteColumns.COLUMN_NAME_MOVIEID, Id);
+        cv.put(FavoriteColumns.COLUMN_NAME_POPULARITY, Popularity);
+        cv.put(FavoriteColumns.COLUMN_NAME_RELEASEDATE, ReleaseDate != null ? ReleaseDate : "");
+        cv.put(FavoriteColumns.COLUMN_NAME_TITLE, Title != null ? Title : "");
+        cv.put(FavoriteColumns.COLUMN_NAME_VOTEAVG, VoteAvg);
+        cv.put(FavoriteColumns.COLUMN_NAME_VOTECOUNT, VoteCount);
         return cv;
 
     }

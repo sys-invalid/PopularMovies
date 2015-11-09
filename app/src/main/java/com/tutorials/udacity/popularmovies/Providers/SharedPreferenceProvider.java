@@ -31,10 +31,26 @@ public class SharedPreferenceProvider {
         editor.commit();
     }
 
+    public void save(String key, boolean value) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MovieApp.getInstance());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
     public void saveToList(String key, String value) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MovieApp.getInstance());
         Set<String> existingKeys = preferences.getStringSet(key, new HashSet<String>());
         existingKeys.add(value);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putStringSet(key, existingKeys);
+        editor.commit();
+    }
+
+    public void saveToList(String key, long value) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MovieApp.getInstance());
+        Set<String> existingKeys = preferences.getStringSet(key, new HashSet<String>());
+        existingKeys.add((String.valueOf(value)));
         SharedPreferences.Editor editor = preferences.edit();
         editor.putStringSet(key, existingKeys);
         editor.commit();
@@ -61,6 +77,10 @@ public class SharedPreferenceProvider {
         return preferences.getStringSet(key, new HashSet<String>());
     }
 
+    public boolean get(String key, boolean  defaultVal) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MovieApp.getInstance());
+        return preferences.getBoolean(key,  defaultVal);
+    }
 
     public void clearAll(String key, String value) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MovieApp.getInstance());

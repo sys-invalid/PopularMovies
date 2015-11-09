@@ -4,9 +4,14 @@ import android.view.View;
 
 import com.tutorials.udacity.popularmovies.Models.Movie;
 
+import java.util.List;
+
 /**
  * Created by asharma on 9/1/15.
  */
-public interface IMovieClickListener {
+public interface IMovieListFragmentListener {
     void onMovieItemClicked(Movie pMovie, int position, View imageview);
+    void MovieListLoaded(List<Movie> pMovie);
+    void onMovieRemoved(Movie pMovie);
+    void onMovieAdded(Movie pMovie);
 }

@@ -2,8 +2,13 @@
     <string name="app_name">Popular Movies</string>
     <string name="popular_settings">Most Popular</string>
     <string name="votes_settings">Highest Rating</string>
+    <string name="favorite_settings">Favorites</string>
     <string name="release_date">Release Date: </string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trailers">Trailers </string>
+    <string name="notrailer">No Trailers Found</string>
+    <string name="noreviews">No Reviews Added</string>
+    <string name="review">Reviews </string>
+    <string name="share">Share</string>
+    <string name="firsttime">Hint: Once you save the movie, you can go to your favorite movies from the settings.</string>
+    <string name="error_save">Oops. Looks like save has failed. We have somebody looking into it.</string>
 </resources>

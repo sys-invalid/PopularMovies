@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class ReviewResponse {
     @SerializedName("id")
-    public int Id;
+    public String Id;
     @SerializedName("page")
     public int Page;
     @SerializedName("total_pages")
@@ -22,7 +22,7 @@ public class ReviewResponse {
 
     public class Review{
         @SerializedName("id")
-        public int Id;
+        public String Id;
         @SerializedName("author")
         public String Author;
         @SerializedName("content")
