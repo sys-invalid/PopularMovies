@@ -12,7 +12,7 @@ public class Constants {
     public static final String API_TRAILER_URL= "http://api.themoviedb.org/3/movie/%s/videos?api_key=%s";
     public static final String API_YOUTUBE_PREVIEW ="http://img.youtube.com/vi/%s/0.jpg";
     public static final String API_YOUTUBE_URL ="http://www.youtube.com/watch?v=%s";
-    public static final String API_KEY ="46a39b3299e8297e6d61d1ec95d0863f";
+    public static final String API_KEY ="API KEY";
     public static final int SORT_POPULARITY = 0;
     public static final int SORT_RATING =1;
     public static final int SORT_SAVE = 2;
